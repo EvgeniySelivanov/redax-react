@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import {MODE} from '../components/Todo/modeConstants';
 const todoSlice = createSlice({
   name: 'todo',
   initialState: {
     tasks: [{ id: Date.now(), body: 'test', isDone: false }],
-    mode: 'all'
+    mode: MODE.ALL,
   },
-  redusers: {
+  reducers: {
     addTask(state, action) {
+      // console.log(action.payload);
       const { value } = action.payload;
       state.tasks.push({ id: Date.now(), body: value, isDone: false });
     },
